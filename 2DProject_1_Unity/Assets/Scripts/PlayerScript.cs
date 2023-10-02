@@ -12,17 +12,21 @@ public class PlayerScript : MonoBehaviour
 {
 
     public float _speed;
+    MSManagerScript _managerScript;
     Rigidbody2D _rbody;
     SpriteRenderer _spriteRenderer;
     Renderer _renderer;
 
     bool _playing = true;
     bool _moving = false;
+    bool _getsMove = false; //keeps track if # moves needs updated
+    int _oldRotation = 0; //used to decide if _getsMove needs updated
     // Start is called before the first frame update
     void Start()
     {
         _rbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _managerScript = FindObjectOfType<MSManagerScript>();
 
     }
 
@@ -37,6 +41,12 @@ public class PlayerScript : MonoBehaviour
         print("currentMangnitude: " + _rbody.velocity.magnitude);
         if(_rbody.velocity.magnitude <= 0 )
         {
+            //check if # moves should be updates
+            if(_getsMove) 
+            { 
+                _managerScript.moves++; 
+                _getsMove = false; 
+            }
             _moving = false;
             _rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
@@ -62,14 +72,23 @@ public class PlayerScript : MonoBehaviour
                 _rbody.velocity = Vector2.right * force;
                 _rbody.rotation = 270;
                 _moving = true;
+
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
                 _rbody.velocity = Vector2.left * force;
                 _rbody.rotation = 90;
                 _moving = true;
+
             }
-        }else
+            //checks if player actually moved on button press
+            if(_oldRotation != _rbody.rotation)
+            {
+                _getsMove = true;
+                _oldRotation = (int)_rbody.rotation;
+            }
+        }
+        else
         {
             //player keeps moving in chosen direction
             Vector2 current = _rbody.velocity.normalized;
@@ -100,8 +119,16 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.tag.ToString() == "Coin")
         {
+            _managerScript.HitCoin();
             Destroy(collision.gameObject);
+            
         }
+        if (collision.gameObject.tag.ToString() == "Ring")
+        {
+            Destroy(collision.gameObject);
+            _getsMove = false; //move # doesn't change when you collect a ring
+        }
+        
     }
 
     private void endGame()

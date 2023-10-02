@@ -7,6 +7,7 @@ TagManager:
   - Goal
   - Wall
   - Coin
+  - Ring
   layers:
   - Default
   - TransparentFX
