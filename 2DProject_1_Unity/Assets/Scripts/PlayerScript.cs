@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -38,7 +37,6 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-        print("currentMangnitude: " + _rbody.velocity.magnitude);
         if(_rbody.velocity.magnitude <= 0 )
         {
             //check if # moves should be updates
@@ -51,7 +49,7 @@ public class PlayerScript : MonoBehaviour
             _rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        float force = _speed * Time.deltaTime;
+        float force = _speed;
         if (!_moving)
         {
             // get player input
