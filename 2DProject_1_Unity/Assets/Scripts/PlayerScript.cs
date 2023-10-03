@@ -124,7 +124,6 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag.ToString() == "Ring")
         {
             Destroy(collision.gameObject);
-            _getsMove = false; //move # doesn't change when you collect a ring
         }
         
     }
