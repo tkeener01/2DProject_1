@@ -21,12 +21,6 @@ public class MSManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((int)(Time.time - _startTime) > 10)
-        {
-            GameObject[] gos = GameObject.FindGameObjectsWithTag("Ring");
-            foreach (GameObject go in gos)
-                Destroy(go);
-        }
         _movesText.text = "Moves: " + moves.ToString();
     }
 
