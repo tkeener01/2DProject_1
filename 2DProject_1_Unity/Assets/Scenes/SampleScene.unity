@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 584028913}
   - component: {fileID: 584028912}
   m_Layer: 0
-  m_Name: klipartz.com
+  m_Name: Chip Bag
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
