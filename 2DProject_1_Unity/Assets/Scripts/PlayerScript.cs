@@ -123,6 +123,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (collision.gameObject.tag.ToString() == "Ring")
         {
+            _managerScript.chipCount++;
             Destroy(collision.gameObject);
         }
         

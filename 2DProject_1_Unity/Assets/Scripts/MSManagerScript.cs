@@ -9,8 +9,10 @@ public class MSManagerScript : MonoBehaviour
     public GameObject _prefabRing;
     public Text _movesText;
     public int moves;
-
+    public int chipCount = 0;
     private float _startTime;
+    public GameObject _closedDoor;
+    public GameObject _openDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,11 @@ public class MSManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(chipCount == 9)
+        {
+            Destroy(_closedDoor);
+            Instantiate(_openDoor, new Vector3(-9, 1, 0), Quaternion.identity);
+        }
         _movesText.text = "Moves: " + moves.ToString();
     }
 
