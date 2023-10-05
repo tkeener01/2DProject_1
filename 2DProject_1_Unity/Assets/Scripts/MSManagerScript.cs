@@ -10,7 +10,6 @@ public class MSManagerScript : MonoBehaviour
     public Text _movesText;
     public int moves;
     public int chipCount = 0;
-    private float _startTime;
     public GameObject _closedDoor;
     public GameObject _openDoor;
 
@@ -33,7 +32,6 @@ public class MSManagerScript : MonoBehaviour
 
     public void HitCoin()
     {
-        _startTime = Time.time;
         Instantiate(_prefabRing, new Vector3(10,5,0), Quaternion.identity);
         Instantiate(_prefabRing, new Vector3(1.5f, 5, 0), Quaternion.identity);
         Instantiate(_prefabRing, new Vector3(1.5f, 2.5f, 0), Quaternion.identity);

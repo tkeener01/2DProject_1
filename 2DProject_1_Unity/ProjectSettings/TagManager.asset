@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Coin
   - Ring
+  - Chip Bag 2
+  - PotatoChip2
   layers:
   - Default
   - TransparentFX
