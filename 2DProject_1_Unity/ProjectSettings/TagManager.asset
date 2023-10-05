@@ -48,6 +48,9 @@ TagManager:
   - name: Under
     uniqueID: 2417751585
     locked: 0
+  - name: ClosedDoor
+    uniqueID: 2448786759
+    locked: 0
   - name: Over
     uniqueID: 2202105127
     locked: 0
