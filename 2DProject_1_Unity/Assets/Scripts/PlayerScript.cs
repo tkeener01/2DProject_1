@@ -138,6 +138,7 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("PotatoChip2"))
         {
+            _L2SceneManager.chipCount++;
             Destroy(collision.gameObject);
         }
 

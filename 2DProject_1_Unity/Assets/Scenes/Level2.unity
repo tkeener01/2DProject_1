@@ -562,6 +562,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b63ac0d4a2ce24995bdb65316fdc80, type: 3}
+--- !u!1 &459373618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3473016688995364443, guid: e0686cf04500b5242834f8f29111cd28, type: 3}
+  m_PrefabInstance: {fileID: 1513782721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521609174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1053,6 +1058,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potatoChip: {fileID: 8704414722933386523, guid: cc2211aaca4342746befa7eded2afa36, type: 3}
+  chipCount: 0
+  _closedDoor: {fileID: 459373618}
+  _openDoor: {fileID: 4451201725066702396, guid: 899a2a721fb503843a2e4038963b4ad4, type: 3}
 --- !u!114 &1526499276
 MonoBehaviour:
   m_ObjectHideFlags: 0

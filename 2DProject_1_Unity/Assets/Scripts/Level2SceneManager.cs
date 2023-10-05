@@ -5,6 +5,10 @@ using UnityEngine;
 public class Level2Manager : MonoBehaviour
 {
     public GameObject potatoChip;
+    public int chipCount = 0;
+
+    public GameObject _closedDoor;
+    public GameObject _openDoor;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,11 @@ public class Level2Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (chipCount == 9)
+        {
+            Destroy(_closedDoor);
+            Instantiate(_openDoor, new Vector3(9, -4, 0), Quaternion.identity);
+        }
 
     }
 
