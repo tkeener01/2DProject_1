@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -19,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     Renderer _renderer;
 
+    bool _playing = true;
     bool _moving = false;
     bool _getsMove = false; //keeps track if # moves needs updated
     int _oldRotation = 0; //used to decide if _getsMove needs updated
@@ -35,9 +34,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
+        if (!_playing) {
+            endGame();
+            return;
         }
 
         if(_rbody.velocity.magnitude <= 0 )
@@ -45,15 +44,7 @@ public class PlayerScript : MonoBehaviour
             //check if # moves should be updates
             if(_getsMove) 
             { 
-<<<<<<< Updated upstream
               //  _managerScript.moves++; 
-=======
-<<<<<<< HEAD
-                _managerScript.moves--; 
-=======
-              //  _managerScript.moves++; 
->>>>>>> c460cf8876de3e733e20e4de1bbefcc5a9c09821
->>>>>>> Stashed changes
                 _getsMove = false; 
             }
             _moving = false;
@@ -116,17 +107,11 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    public void failGame()
-    {
-        PlayerPrefs.SetInt("success", 0);
-        SceneManager.LoadScene("EndScreen");
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.ToString() == "Goal")
         {
-            endGame();
+            _playing = false;
         }
     }
 
@@ -135,13 +120,13 @@ public class PlayerScript : MonoBehaviour
         if(collision.gameObject.tag.ToString() == "Coin")
         {
             _managerScript.HitCoin();
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
             
         }
         if (collision.gameObject.tag.ToString() == "Ring")
         {
             _managerScript.chipCount++;
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
 
         //level 2
@@ -151,16 +136,6 @@ public class PlayerScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-<<<<<<< Updated upstream
-        //level 2
-        if(collision.gameObject.tag.Equals("Chip Bag 2"))
-        {
-            _L2SceneManager.HitChipBag();
-            Destroy(collision.gameObject);
-        }
-
-=======
->>>>>>> Stashed changes
         if (collision.gameObject.tag.Equals("PotatoChip2"))
         {
             _L2SceneManager.chipCount++;
@@ -172,7 +147,14 @@ public class PlayerScript : MonoBehaviour
     private void endGame()
     {
         _rbody.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Default");
-        _managerScript.LevelComplete();
+        //display score and time
     }
+
+
+
+
+
+
+
 
 }
