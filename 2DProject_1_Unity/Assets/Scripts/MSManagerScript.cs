@@ -25,6 +25,7 @@ public class MSManagerScript : MonoBehaviour
         _player = FindObjectOfType<PlayerScript>();
         _openDoor.SetActive(false);
         _closedDoor.SetActive(true);
+
         chips = GameObject.FindGameObjectsWithTag("Ring");
         foreach (GameObject chip in chips)
         {
