@@ -9,18 +9,15 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("success1"))
-        {
-            PlayerPrefs.DeleteKey("success1"); //if the player won the game previously
-        }
-        if (PlayerPrefs.HasKey("success2"))
-        {
-            PlayerPrefs.DeleteKey("success2"); //if the player won the game previously
-        }
-        if (!PlayerPrefs.HasKey("low")) //value of the overall lowest score
+        if (!PlayerPrefs.HasKey("low"))
         {
             PlayerPrefs.SetInt("low", 100);
         }
+        PlayerPrefs.SetInt("success1", 0); //success of 1st level
+        PlayerPrefs.SetInt("success2", 0); //success of 2nd level
+        PlayerPrefs.SetInt("success", 0); //success of whole game
+        PlayerPrefs.SetInt("moves1", 100); //move count 1st level
+        PlayerPrefs.SetInt("moves2", 100); //move count 2nd level
 
     }
 

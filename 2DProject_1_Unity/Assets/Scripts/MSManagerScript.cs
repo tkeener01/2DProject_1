@@ -21,7 +21,14 @@ public class MSManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moves = 100;
+        if(_level == 1)
+        {
+            moves = 101;
+        }
+        else
+        {
+            moves = 100;
+        }
         _player = FindObjectOfType<PlayerScript>();
         _openDoor.SetActive(false);
         _closedDoor.SetActive(true);
@@ -95,9 +102,15 @@ public class MSManagerScript : MonoBehaviour
             SceneManager.LoadScene("Level2");
         } else if(_level == 2)
         {
-            PlayerPrefs.SetInt("success2", 2);
+            PlayerPrefs.SetInt("success2", 1);
+            PlayerPrefs.SetInt("success", 1);
+            if(PlayerPrefs.GetInt("low") >= PlayerPrefs.GetInt("moves1") + PlayerPrefs.GetInt("moves2"))
+            {
+                PlayerPrefs.SetInt("low", PlayerPrefs.GetInt("moves1") + PlayerPrefs.GetInt("moves2"));
+            }
             SceneManager.LoadScene("EndScreen");
         }
+
 
     }
 }

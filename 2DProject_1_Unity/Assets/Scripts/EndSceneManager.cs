@@ -16,7 +16,8 @@ public class EndSceneManager : MonoBehaviour
     {
         if(1 == PlayerPrefs.GetInt("success"))
         {
-            _Results.text = "Great Job Buddy :(";
+            _Results.text = "Great Job Buddy :)";
+            print(PlayerPrefs.GetInt("low"));
             _successRoomba.SetActive(true);
             _failRoomba.SetActive(false);
             _failRoombaStation.SetActive(false);

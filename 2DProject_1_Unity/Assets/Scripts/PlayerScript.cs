@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
 
     public float _speed;
     MSManagerScript _managerScript;
-    Level2Manager _L2SceneManager;
     Rigidbody2D _rbody;
     SpriteRenderer _spriteRenderer;
     Renderer _renderer;
@@ -25,10 +24,10 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _getsMove = false;
         _rbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _managerScript = FindObjectOfType<MSManagerScript>();
-        _L2SceneManager = FindObjectOfType<Level2Manager>();
 
     }
 
@@ -45,7 +44,6 @@ public class PlayerScript : MonoBehaviour
             //check if # moves should be updates
             if(_getsMove) 
             { 
-
                 _managerScript.moves--; 
                 _getsMove = false; 
             }
@@ -135,19 +133,6 @@ public class PlayerScript : MonoBehaviour
         {
             _managerScript.chipCount++;
             collision.gameObject.SetActive(false);
-        }
-
-        //level 2
-        if(collision.gameObject.tag.Equals("Chip Bag 2"))
-        {
-            _L2SceneManager.HitChipBag();
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag.Equals("PotatoChip2"))
-        {
-            _L2SceneManager.chipCount++;
-            Destroy(collision.gameObject);
         }
 
     }
