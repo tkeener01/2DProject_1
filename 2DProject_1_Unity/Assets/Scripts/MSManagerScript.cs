@@ -63,9 +63,6 @@ public class MSManagerScript : MonoBehaviour
 
     public void HitCoin()
     {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         if (_level == 1)
         {
             Instantiate(_prefabRing, new Vector3(10, 5, 0), Quaternion.identity);
@@ -101,17 +98,5 @@ public class MSManagerScript : MonoBehaviour
             SceneManager.LoadScene("EndScreen");
         }
 
-=======
->>>>>>> Stashed changes
-        Instantiate(_prefabRing, new Vector3(10,5,0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(1.5f, 5, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(1.5f, 2.5f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(7.5f, 2.5f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(8.5f, .25f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(13.5f, .25f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(1, -4.5f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(-1.5f, 2.5f, 0), Quaternion.identity);
-        Instantiate(_prefabRing, new Vector3(-9.5f, 4.3f, 0), Quaternion.identity);
->>>>>>> c460cf8876de3e733e20e4de1bbefcc5a9c09821
     }
 }

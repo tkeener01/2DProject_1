@@ -45,15 +45,8 @@ public class PlayerScript : MonoBehaviour
             //check if # moves should be updates
             if(_getsMove) 
             { 
-<<<<<<< Updated upstream
-              //  _managerScript.moves++; 
-=======
-<<<<<<< HEAD
+
                 _managerScript.moves--; 
-=======
-              //  _managerScript.moves++; 
->>>>>>> c460cf8876de3e733e20e4de1bbefcc5a9c09821
->>>>>>> Stashed changes
                 _getsMove = false; 
             }
             _moving = false;
@@ -151,16 +144,6 @@ public class PlayerScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-<<<<<<< Updated upstream
-        //level 2
-        if(collision.gameObject.tag.Equals("Chip Bag 2"))
-        {
-            _L2SceneManager.HitChipBag();
-            Destroy(collision.gameObject);
-        }
-
-=======
->>>>>>> Stashed changes
         if (collision.gameObject.tag.Equals("PotatoChip2"))
         {
             _L2SceneManager.chipCount++;
